@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ES5",
+            "ES6",
+            "DOM"
+        ],
+        "target": "ES6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "types": [
+            "node"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "esModuleInterop": true
+    },
+}
