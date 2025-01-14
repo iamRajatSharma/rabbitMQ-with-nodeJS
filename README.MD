@@ -35,6 +35,26 @@ The consumer panel listens to RabbitMQ messages and mirrors the CRUD operations 
     cd rabbitMQ-with-nodeJS
 ```
 
+- **Admin Panel Setup (Producer):**
+
+```
+    cd admin
+
+    npx tsc -w
+
+    npm start
+```
+
+- **Admin Panel Setup (Producer):**
+
+```
+    cd main_app
+
+    npx tsc -w
+
+    npm start
+```
+
 ---
 
 ## Key Features
