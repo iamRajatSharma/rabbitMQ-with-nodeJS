@@ -9,7 +9,11 @@ const ProductSchema = new Schema({
     },
     image: {
         type: String
+    },
+    likes: {
+        type: Number,
+        default: 0
     }
 })
 
-module.exports = mongoose.model("prosucts", ProductSchema)
+module.exports = mongoose.model("ProductSchema", ProductSchema)
