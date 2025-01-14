@@ -13,22 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
 const dotenv = require("dotenv");
 dotenv.config();
 const app = (0, express_1.default)();
 const amqplib_1 = __importDefault(require("amqplib"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const ProductSchema_1 = __importDefault(require("./model/ProductSchema"));
-const PORT = 8001;
-app.use((0, cors_1.default)({
-    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
-}));
+const PORT = process.env.PORT;
 app.use(express_1.default.json());
 function startamqp() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield mongoose_1.default.connect("mongodb://127.0.0.1/rabbit_mq")
+            yield mongoose_1.default.connect(process.env.DATABASE_URL)
                 .then((success) => {
                 console.log('DB Connected');
             })

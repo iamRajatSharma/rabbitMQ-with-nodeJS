@@ -1,5 +1,4 @@
-import express, { Request, Response } from "express"
-import cors from "cors";
+import express from "express"
 const dotenv = require("dotenv")
 dotenv.config()
 const app = express();
@@ -7,18 +6,14 @@ import amqp from "amqplib"
 import mongoose from "mongoose";
 import ProductSchema from "./model/ProductSchema"
 
-const PORT = 8001;
-app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
-}));
-
+const PORT = process.env.PORT;
 app.use(express.json())
 
 
 async function startamqp() {
     try {
 
-        await mongoose.connect("mongodb://127.0.0.1/rabbit_mq")
+        await mongoose.connect(process.env.DATABASE_URL)
             .then((success) => {
                 console.log('DB Connected')
             })
